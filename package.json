@@ -1,0 +1,34 @@
+{
+  "name": "project-two",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -e hbs, js, css app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LIBRARYP-M/LIBRARY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LIBRARYP-M/LIBRARY/issues"
+  },
+  "homepage": "https://github.com/LIBRARYP-M/LIBRARY#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.9.1",
+    "morgan": "^1.10.0"
+  }
+}
