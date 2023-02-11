@@ -16,6 +16,11 @@ app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
 
+app.use((req, res, next) => {
+    console.log(req.path)
+    next()
+})
+
 const router = require('./config/routes.config');
 app.use('/', router);
 
