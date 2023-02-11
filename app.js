@@ -4,6 +4,8 @@ const express = require('express');
 const logger = require('morgan');
 const createError = require('http-errors');
 
+require('./config/db.config');
+
 const app = express();
 
 app.use(logger('dev'));
@@ -11,6 +13,11 @@ app.use(express.urlencoded( {extended: false} ));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
+
+app.use(express.static('public'));
+
+const router = require('./config/routes.config');
+app.use('/', router);
 
 app.use((req, res, next) => {
     next(createError(404, 'Resource not found'));
