@@ -1,0 +1,78 @@
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body{
+  margin: 0 px;
+  height: 100%;
+}
+
+
+/* EL MÁXIMO DE ALTO DE MI DIV ES EL DEL OTRO DIV, NO COGE LA PÁGIVA ENTERA 
+*, *:before, *:after {
+  box-sizing: inherit;
+} */
+
+.container-sg-level-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-sg-level-2{
+  margin-top: 2.5%;
+  width: 50%;     
+  border-radius: 20px;
+  padding: 40px;
+  background: #fcfcfc;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+#firstName{
+  margin-top: 10%;
+}
+
+.form-control {
+  /* font-family: 'IBM Plex Mono', monospace; */
+  font-family: 'Special Elite', cursive;
+  background: #e9ecef;
+  padding: 10px;
+  padding-left: 20px;
+  margin-top: 30px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow: inset 3px 3px 3px #cbced1;
+}
+
+.text-sg {
+  /* font-family: 'IBM Plex Mono', monospace; */
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  color:#472425;
+  font-weight: 900;
+  font-size: 60px;
+  letter-spacing: 0.5px;
+}
+
+.btn-bydefault{
+  font-family: 'Special Elite', cursive;
+  /* font-family: 'IBM Plex Mono', monospace; */
+  margin-top: 5%;
+  border-radius: 32px;
+  font-size: 14px;
+  margin-left: 25% ;
+  border: 1px solid transparent;
+  letter-spacing: 0.5px;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background-color:#472425;
+  height: 50px;
+  width: 50%;
+}
+
+.btn-bydefault:hover{
+  transform: scale(1.04);
+  background-color:#472425;
+}

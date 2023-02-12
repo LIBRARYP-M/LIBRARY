@@ -1,55 +1,61 @@
-<h1 class="text-primary">Sign up to library</h1>
-
-<form action="/signup" method="POST">
-
-  <div class="mb-3">
-    <label for="firstName" class="form-label">First name</label>
-    <input value="{{user.firstName}}" class="form-control {{#if errors.firstName}}is-invalid{{/if}}" id="firstName" name="firstName" required>
+<div class="container-sg-level-1">
+  <div class="container-sg-level-2">
+    <h1 class="text-sg">Sign up</h1>
+    
+    <form action="/signup" method="POST">
+    
+    <div class="mb-3">
+    {{!-- <label for="firstName" class="form-label"></label> --}}
+    <input value="{{user.firstName}}" class="form-control {{#if errors.firstName}}is-invalid{{/if}}" id="firstName" name="firstName" required placeholder="Name">
     <div class="invalid-feedback">
     {{errors.firstName}}
     </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="lastName" class="form-label">Last name</label>
-    <input value="{{user.lastName}}" class="form-control {{#if errors.lastName}}is-invalid{{/if}}" id="lastName" name="lastName" required>
+    </div>
+    
+    <div class="mb-3">
+    {{!-- <label for="lastName" class="form-label"></label> --}}
+    <input value="{{user.lastName}}" class="form-control {{#if errors.lastName}}is-invalid{{/if}}" id="lastName" name="lastName" required placeholder="Last name">
     <div class="invalid-feedback">
     {{errors.lastName}}
     </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-    <input value="{{user.username}}" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="username" name="username" required>
+    </div>
+    
+    <div class="mb-3">
+    {{!-- <label for="username" class="form-label"></label> --}}
+    <input value="{{user.username}}" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="username" name="username" required placeholder="Username">
     <div class="invalid-feedback">
     {{errors.email}}
     </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input value="{{user.email}}" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email" name="email" aria-describedby="emailHelp" required>
+    </div>
+    
+    <div class="mb-3">
+    {{!-- <label for="email" class="form-label"></label> --}}
+    <input value="{{user.email}}" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email" name="email" aria-describedby="emailHelp" required placeholder="Email">
     <div class="invalid-feedback">
         {{errors.email}}
     </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" id="password" name="password" required>
+    </div>
+    
+    <div class="mb-3">
+    {{!-- <label for="password" class="form-label"></label> --}}
+    <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" id="password" name="password" required placeholder="Password: at least 8 characters">
     <div class="invalid-feedback">
     {{errors.password}}
     </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="repeat-password" class="form-label">Repeat password</label>
-    <input type="password" class="form-control {{#if errors.repeatPassword}}is-invalid{{/if}}" id="repeat-password" name="repeatPassword" required>
+    </div>
+    
+    <div class="mb-3">
+    {{!-- <label for="repeat-password" class="form-label"></label> --}}
+    <input type="password" class="form-control {{#if errors.repeatPassword}}is-invalid{{/if}}" id="repeat-password" name="repeatPassword" required placeholder="Repeat password">
     <div class="invalid-feedback">
     {{errors.repeatPassword}}
     </div>
+    </div>
+    
+    <button type="submit" class="btn-bydefault">CREATE ACCOUNT</button>
+    
+    </form>
+  
   </div>
 
-  <button type="submit" class="btn btn-primary">Create account</button>
-
-</form>
+</div>
