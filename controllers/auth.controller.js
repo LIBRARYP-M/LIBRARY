@@ -12,7 +12,6 @@ module.exports.signup = (req, res, next) => {
 };
 
 module.exports.doSignup = (req, res, next) => {
-  console.log("entro al signup");
   const renderWithErrors = (errors) => {
     console.log(errors);
     const userData = { ...req.body };
@@ -34,7 +33,6 @@ module.exports.doSignup = (req, res, next) => {
           renderWithErrors({ email: "username or email already in use" });
         } else {
           User.create(req.body).then((userCreated) => {
-            console.log(userCreated);
             res.redirect("/");
           });
         }
@@ -74,7 +72,7 @@ const doLoginWithStrategy = (req, res, next, strategy = 'local-auth') => {
         if (loginError) {
           next(loginError)
         } else {
-          res.redirect('/timeline');
+          res.redirect('/');
         }
       })
     }
@@ -85,4 +83,7 @@ module.exports.doLogin = (req, res, next) => {
   doLoginWithStrategy(req, res, next);
 };
 
-
+module.exports.doLogout = (req, res, next) => {
+  req.session.destroy();
+  res.redirect("/login");
+};
