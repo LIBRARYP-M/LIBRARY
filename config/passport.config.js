@@ -21,7 +21,7 @@ passport.use(
   new LocalStrategy(
     {
       usernameField: "email",
-      passwordField: "password",
+      passwordField: "password"
     },
     (email, password, next) => {
       User.findOne({ email })
@@ -29,13 +29,15 @@ passport.use(
           if (!user) {
             next(null, false, { error: GENERIC_ERROR_MESSAGE });
           } else {
-            return user.checkPassword(password).then((match) => {
-              if (!match) {
-                next(null, false, { error: GENERIC_ERROR_MESSAGE });
-              } else {
-                next(null, user);
+            return user.checkPassword(password)
+              .then((match) => {
+                if (!match) {
+                  next(null, false, { error: GENERIC_ERROR_MESSAGE });
+                } else {
+                  next(null, user);
+                }
               }
-            });
+            );
           }
         })
         .catch((err) => next(err));
@@ -44,4 +46,3 @@ passport.use(
 );
 
 module.exports.GENERIC_ERROR_MESSAGE = GENERIC_ERROR_MESSAGE;
-

@@ -24,6 +24,11 @@ app.use(sessionConfig);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 const router = require("./config/routes.config");
 app.use("/", router);
 
