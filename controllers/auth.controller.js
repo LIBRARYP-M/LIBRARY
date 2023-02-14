@@ -13,7 +13,6 @@ module.exports.signup = (req, res, next) => {
 
 module.exports.doSignup = (req, res, next) => {
   const renderWithErrors = (errors) => {
-    console.log(errors);
     const userData = { ...req.body };
     delete userData.password;
     delete userData.repeatPassword;
@@ -27,25 +26,27 @@ module.exports.doSignup = (req, res, next) => {
   const { password, repeatPassword, username, email } = req.body;
 
   if (password && repeatPassword && password === repeatPassword) {
+    delete req.body.repeatPassword
+
     User.findOne({ $or: [{ username }, { email }] })
       .then((user) => {
         if (user) {
           renderWithErrors({ email: "username or email already in use" });
         } else {
-          User.create(req.body).then((userCreated) => {
+         return User.create(req.body).then((userCreated) => {
             res.redirect("/");
           });
         }
       })
       .catch((err) => {
         if (err instanceof mongoose.Error.ValidationError) {
-          renderWithErrors("/signup", err.errors);
+          renderWithErrors( err.errors);
         } else {
           next(err);
         }
       });
   } else {
-    renderWithErrors("/signup", { password: "passwords don't match" });
+    renderWithErrors({ password: "passwords don't match" });
   }
 };
 

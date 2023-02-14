@@ -41,6 +41,9 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toObject: { // Si usamos virtuals en helpers o cosas de hbs, ponemos esta linea
+      virtuals: true
+    },
   }
 );
 
