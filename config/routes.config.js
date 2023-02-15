@@ -16,4 +16,10 @@ router.get("/logout", authMiddleware.isAuthenticated, authController.doLogout);
 router.get("/books/create", authMiddleware.isAuthenticated, booksController.create);
 router.post("/books/create", authMiddleware.isAuthenticated, booksController.doCreate);
 
+router.get("/books/list", authMiddleware.isAuthenticated, booksController.list)
+
+router.get("/books/:id/edit", authMiddleware.isAuthenticated, booksController.edit)
+
+router.post("/books/:id/delete", authMiddleware.isAuthenticated, booksController.doDelete)
+
 module.exports = router;

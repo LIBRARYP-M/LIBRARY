@@ -60,3 +60,33 @@ module.exports.home = (req, res, next) => {
     .catch(next)
   }
 };
+
+}
+
+module.exports.list = (req, res, next) => {
+  Book.find({user: req.user.id})
+    .then(books => {
+      res.render("books/booksList", { books })
+    })
+    .catch(next)
+}
+
+module.exports.edit = (req, res, next) => {
+  console.log("slay")
+  Book.findById(req.params.id)
+    .then(book => {
+      console.log(book)
+      res.render("books/editForm", { book, languages, genres })
+    })
+    .catch(err => console.log(err))
+}
+
+
+module.exports.doDelete = (req, res, next) => {
+  Book.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.redirect("/books/list")
+    })
+    .catch(next)
+}
+
