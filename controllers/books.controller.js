@@ -2,22 +2,23 @@ const mongoose = require("mongoose");
 const Book = require("../models/Book.model");
 const { specialEditionParser } = require("../models/helpers/books.helper");
 
-const languages = Book.schema.path('language').enumValues;
-const genres = Book.schema.path('genre').enumValues;
+const languages = Book.schema.path("language").enumValues;
+const genres = Book.schema.path("genre").enumValues;
 
 module.exports.create = (req, res, next) => {
-  res.render('books/createForm', {
-    languages, genres
+  res.render("books/createForm", {
+    languages,
+    genres,
   });
 };
 
 module.exports.doCreate = (req, res, next) => {
   const renderWithErrors = (errors) => {
-    res.status(400).render('books/createForm', {
+    res.status(400).render("books/createForm", {
       book: req.body,
       errors,
       languages,
-      genres
+      genres,
     });
   };
 
@@ -27,21 +28,38 @@ module.exports.doCreate = (req, res, next) => {
     language: req.body.language,
     specialEdition: specialEditionParser(req.body.specialEdition),
     genre: req.body.genre,
-    user: req.user.id
+    user: req.user.id,
   };
 
   Book.create(newBook)
-    .then(book => {
-      res.redirect('/');
+    .then((book) => {
+      res.redirect("/");
     })
-    .catch(err => {
-      console.log('catch')
+    .catch((err) => {
+      console.log("catch");
       if (err instanceof mongoose.Error.ValidationError) {
-        renderWithErrors(err.errors)
+        renderWithErrors(err.errors);
       } else {
-        next(err)
+        next(err);
       }
+    });
+};
+
+module.exports.home = (req, res, next) => {
+  if (req.user) {
+    Book.find({user: {$ne: req.user.id}})
+    .then((books) => {
+      res.render("home", { books });
     })
+    .catch(next)
+  } else {
+  Book.find()
+    .then((books) => {
+      res.render("home", { books });
+    })
+    .catch(next)
+  }
+};
 
 }
 
@@ -71,3 +89,4 @@ module.exports.doDelete = (req, res, next) => {
     })
     .catch(next)
 }
+
