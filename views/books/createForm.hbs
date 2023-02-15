@@ -2,7 +2,7 @@
   <h3 class="mb-4">Create your book</h3>
   <div class="mb-3">
     <label class="form-label">Title</label>
-    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value={{book.title}} required/>
+    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required/>
     <div class="invalid-feedback">
       {{errors.title}}
     </div>
