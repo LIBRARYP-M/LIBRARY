@@ -1,16 +1,24 @@
-<h1 class="text-primary">Login to Library</h1>
+<div class="container-sg-level-1">
+  
+  <div class="container-sg-level-2">
+    <h1 class="text-sg">Log in</h1>
 
 <form action="/login" method="POST">
   <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input value="{{user.email}}" type="email" class="form-control {{#if errorMessage}}is-invalid{{/if}}" id="email" name="email" aria-describedby="emailHelp" required>
+    {{!-- <label for="email" class="form-label">Email address</label> --}}
+    <input value="{{user.email}}" type="email" class="form-control {{#if errorMessage}}is-invalid{{/if}}" id="email" name="email" aria-describedby="emailHelp" required placeholder="Email adress">
     <div class="invalid-feedback">
       {{errorMessage}}
     </div>
   </div>
+
   <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password" required>
+    {{!-- <label for="password" class="form-label">Password</label> --}}
+    <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn-bydefault">LOG IN</button>
 </form>
+
+  </div>
+
+</div>
