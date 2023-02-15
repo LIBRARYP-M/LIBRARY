@@ -2,14 +2,14 @@
   <h3 class="mb-4">Create your book</h3>
   <div class="mb-3">
     <label class="form-label">Title</label>
-    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value={{book.title}} required/>
+    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required/>
     <div class="invalid-feedback">
       {{errors.title}}
     </div>
   </div>
   <div class="mb-3">
     <label class="form-label">Author</label>
-    <input type="text" class="form-control {{#if errors.author}}is-invalid{{/if}}" name="author" required/>
+    <input type="text" class="form-control {{#if errors.author}}is-invalid{{/if}}" name="author" value="{{book.author}}" required/>
     <div class="invalid-feedback">
       {{errors.author}}
     </div>
@@ -17,9 +17,9 @@
   <div class="mb-3">
     <label class="form-label">Language</label>
     <select type="text" class="form-control {{#if errors.language}}is-invalid{{/if}}" name="language" required>
-    <option selected="selected" value="">Select something</option>
+    <option disabled selected value>Select option</option>
       {{#each languages as  |language|}}
-        <option value="{{language}}">{{language}}</option>
+        <option value="{{language}}" {{#findSelected book.language language}}selected{{/findSelected}}>{{language}}</option>
       {{/each}}
     </select>
  
@@ -27,7 +27,7 @@
   <div class="mb-3">
     <label class="form-label">Special Edition</label>
     <select type="text" class="form-control {{#if errors.specialEdition}}is-invalid{{/if}}" name="specialEdition" required>
-      <option selected="selected" value="NO CONTENT">Select option</option>
+      <option disabled selected value>Select option</option>
       <option  value="true">Yes</option>
       <option  value="false">No</option>
     </select>
@@ -38,7 +38,7 @@
    <div class="mb-3">
     <label class="form-label">Genre</label>
     <select type="text" class="form-control {{#if errors.genre}}is-invalid{{/if}}" name="genre" required>
-      <option disabled selected value></option>
+      <option disabled selected value>Select option</option>
       {{#each genres as  |genre|}}
         <option value="{{genre}}">{{genre}}</option>
       {{/each}}
