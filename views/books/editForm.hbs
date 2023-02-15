@@ -1,5 +1,5 @@
-<form class="create-book-form" action="/books/create" method="POST">
-  <h3 class="mb-4">Create your book</h3>
+<form class="create-book-form" action="/books/{{book.id}}/edit" method="POST">
+  <h3 class="mb-4">Edit book</h3>
   <div class="mb-3">
     <label class="form-label">Title</label>
     <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required/>
@@ -18,18 +18,21 @@
     <label class="form-label">Language</label>
     <select type="text" class="form-control {{#if errors.language}}is-invalid{{/if}}" name="language" required>
     <option disabled selected value>Select option</option>
-      {{#each languages as  |language|}}
-        <option value="{{language}}" {{#if book.language}}{{#findSelected language=book.language languageToCheck=language}}selected{{/findSelected}}{{/if}}>{{language}}</option>
+      {{#each languages as |language|}}
+        <option value="{{language}}" {{#findSelected optionChosen=../book.language optionToChoose=language}}selected="selected"{{/findSelected}}>{{language}}</option>
       {{/each}}
     </select>
+    <div class="invalid-feedback">
+      {{errors.language}}
+    </div>
  
   </div>
   <div class="mb-3">
     <label class="form-label">Special Edition</label>
     <select type="text" class="form-control {{#if errors.specialEdition}}is-invalid{{/if}}" name="specialEdition" required>
       <option disabled selected value>Select option</option>
-      <option  value="true">Yes</option>
-      <option  value="false">No</option>
+      <option value="true" {{#findSelected optionChosen=book.specialEdition optionToChoose=true}}selected="selected"{{/findSelected}}>Yes</option>
+      <option value="false" {{#findSelected optionChosen=book.specialEdition optionToChoose=false}}selected="selected"{{/findSelected}}>No</option>
     </select>
     <div class="invalid-feedback">
       {{errors.specialEdition}}
@@ -40,7 +43,7 @@
     <select type="text" class="form-control {{#if errors.genre}}is-invalid{{/if}}" name="genre" required>
       <option disabled selected value>Select option</option>
       {{#each genres as  |genre|}}
-        <option value="{{genre}}">{{genre}}</option>
+        <option value="{{genre}}" {{#findSelected optionChosen=../book.genre optionToChoose=genre}}selected="selected"{{/findSelected}}>{{genre}}</option>
       {{/each}}
     </select>
     <div class="invalid-feedback">
@@ -52,5 +55,5 @@
     <label class="form-label">Image</label>
     <input type="text" class="form-control" name="image" />
   </div> --}}
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button type="submit" class="btn btn-primary">Edit</button>
 </form>
