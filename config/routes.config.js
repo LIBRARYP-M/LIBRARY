@@ -19,6 +19,7 @@ router.post("/books/create", authMiddleware.isAuthenticated, booksController.doC
 router.get("/books/list", authMiddleware.isAuthenticated, booksController.list)
 
 router.get("/books/:id/edit", authMiddleware.isAuthenticated, booksController.edit)
+router.post("/books/:id/edit", authMiddleware.isAuthenticated, booksController.doEdit)
 
 router.post("/books/:id/delete", authMiddleware.isAuthenticated, booksController.doDelete)
 

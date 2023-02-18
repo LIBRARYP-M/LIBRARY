@@ -81,6 +81,13 @@ module.exports.edit = (req, res, next) => {
     .catch(err => console.log(err))
 }
 
+module.exports.doEdit = (req, res, next) => {
+  Book.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+      res.redirect("/books/list")
+    })
+    .catch(next)
+}
 
 module.exports.doDelete = (req, res, next) => {
   Book.findByIdAndDelete(req.params.id)
