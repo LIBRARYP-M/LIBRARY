@@ -86,7 +86,7 @@ const doLoginWithStrategy = (req, res, next, strategy = 'local-auth') => {
         if (loginError) {
           next(loginError)
         } else {
-          res.redirect('/');
+          res.redirect('/books/browser');
         }
       })
     }

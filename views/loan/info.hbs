@@ -1,0 +1,8 @@
+<h1>Loan request</h1>
+<p>{{petitioner.firstName}} {{petitioner.lastName}} requested to loan your {{bookFromReceiver.title}}</p>
+<form action="/loan/{{loan.id}}/accept" method="POST">
+  <button class="fa-solid fa-check btn btn-success" type="submit"></button>
+</form>
+<form action="/loan/{{loan.id}}/reject" method="POST">
+  <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+</form>

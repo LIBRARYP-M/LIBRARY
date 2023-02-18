@@ -12,7 +12,7 @@ const loanSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["pendingAcceptance", "accepted", "petitionerClosed", "recieverClosed", "closed"]
+      enum: ["pendingAcceptance", "accepted", "rejected", "petitionerClosed", "recieverClosed", "closed"]
     },
     bookFromReceiver: {
       type: mongoose.Schema.Types.ObjectId,

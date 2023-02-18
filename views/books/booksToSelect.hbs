@@ -1,8 +1,6 @@
 <div class="d-flex">
-  <h1>{{bookId}}</h1>
   {{#each books as |book|}}
     <div class="card w-25 text-center">
-      <h1>{{bookId}}</h1>
       <img src="{{book.image}}"/>
       <h3>{{book.title}}</h3>
       <h4>{{book.author}}</h4>
@@ -13,7 +11,7 @@
       {{/if}}
       <div class="d-flex justify-content-center gap-2">
         <form action="/exchange/{{book.id}}/{{../bookId}}/create" method="POST">
-          <button class="fa-solid fa-trash btn btn-success" type="submit"></button>
+          <button class="fa-solid fa-check btn btn-success" type="submit"></button>
         </form>
       </div>
     </div>

@@ -32,6 +32,16 @@ router.get("/exchange/:id/prepareSelection", authMiddleware.isAuthenticated, exc
 
 router.post("/exchange/:selectedBook/:requestedBook/create", authMiddleware.isAuthenticated, exchangeController.doExchange)
 
+router.get("/exchange/:id/request", authMiddleware.isAuthenticated, exchangeController.request)
+
+router.post("/exchange/:id/accept", authMiddleware.isAuthenticated, exchangeController.doAccept)
+router.post("/exchange/:id/reject", authMiddleware.isAuthenticated, exchangeController.doReject)
+
 router.post("/loan/:id/create", authMiddleware.isAuthenticated, loanController.doCreateLoan)
+
+router.get("/loan/:id/request", authMiddleware.isAuthenticated, loanController.request)
+
+router.post("/loan/:id/accept", authMiddleware.isAuthenticated, loanController.doAccept)
+router.post("/loan/:id/reject", authMiddleware.isAuthenticated, loanController.doReject)
 
 module.exports = router;
