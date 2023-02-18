@@ -22,6 +22,8 @@ module.exports.doCreate = (req, res, next) => {
     });
   };
 
+  console.log(req.file)
+
   const newBook = {
     title: req.body.title,
     author: req.body.author,
@@ -31,9 +33,13 @@ module.exports.doCreate = (req, res, next) => {
     user: req.user.id,
   };
 
+  if(req.file) {
+    newBook.image = req.file.path
+  }
+
   Book.create(newBook)
     .then((book) => {
-      res.redirect("/");
+      res.redirect("/books/browser");
     })
     .catch((err) => {
       console.log("catch");
@@ -61,7 +67,6 @@ module.exports.browser = (req, res, next) => {
   }
 };
 
-
 module.exports.list = (req, res, next) => {
   Book.find({user: req.user.id})
     .then(books => {
@@ -80,6 +85,13 @@ module.exports.edit = (req, res, next) => {
     .catch(err => console.log(err))
 }
 
+module.exports.doEdit = (req, res, next) => {
+  Book.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+      res.redirect("/books/list")
+    })
+    .catch(next)
+}
 
 module.exports.doDelete = (req, res, next) => {
   Book.findByIdAndDelete(req.params.id)

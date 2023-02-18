@@ -10,9 +10,8 @@
       <p>Special edition</p>
       {{/if}}
       <div class="d-flex justify-content-center gap-2">
-        <a class="fa-solid fa-pen-to-square btn btn-primary" type="submit" href="/books/{{book.id}}/edit"></a>
-        <form action="/books/{{book.id}}/delete" method="POST">
-          <button class="fa-solid fa-trash btn btn-danger" type="submit"></button>
+        <form action="/exchange/{{book.id}}/{{../bookId}}/create" method="POST">
+          <button class="fa-solid fa-check btn btn-success" type="submit"></button>
         </form>
       </div>
     </div>
