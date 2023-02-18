@@ -2,7 +2,7 @@
   <div class="container-sg-level-2">
     <h1 class="text-sg">Sign up</h1>
     
-    <form action="/signup" method="POST">
+    <form action="/signup" method="POST" enctype="multipart/form-data">
     
     <div class="mb-3">
     {{!-- <label for="firstName" class="form-label"></label> --}}
@@ -46,12 +46,17 @@
     
     <div class="mb-3">
     {{!-- <label for="repeat-password" class="form-label"></label> --}}
-    <input type="password" class="form-control" id="repeat-password" name="repeatPassword" required placeholder="Repeat password">
-    <div class="invalid-feedback">
-    </div>
+      <input type="password" class="form-control" id="repeat-password" name="repeatPassword" required placeholder="Repeat password">
+      <div class="invalid-feedback">
+      </div>
     </div>
     
-    <button type="submit" class="btn-bydefault">SIGN</button>
+    <div class="mb-3">
+      <label for="image" class="form-label">Profile picture</label>
+      <input class="form-control" type="file" name="image" id="image">
+    </div>
+
+    <button type="submit" class="btn-bydefault">SIGN UP</button>
     
     </form>
   
