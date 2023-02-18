@@ -1,6 +1,7 @@
 <div class="d-flex">
   {{#each books as |book|}}
     <div class="card w-25 text-center">
+      <img src="{{book.image}}"/>
       <h3>{{book.title}}</h3>
       <h4>{{book.author}}</h4>
       <p><span class="text-secondary">LANGUAGE: </span>{{book.language}}</p>
