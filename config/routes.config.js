@@ -1,10 +1,19 @@
 const router = require('express').Router();
+const passport = require('passport');
 const authController = require("../controllers/auth.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
 const booksController = require("../controllers/books.controller");
 const exchangeController = require("../controllers/exchange.controller");
 const loanController = require("../controllers/loan.controller")
 const upload = require('../config/cloudinary.config');
+
+const GOOGLE_SCOPES = [
+  "https://www.googleapis.com/auth/userinfo.profile",
+  "https://www.googleapis.com/auth/userinfo.email"
+];
+
+router.get('/login/google', passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
+router.get('/auth/google/callback', authController.doLoginGoogle);
 
 router.get('/');
 
