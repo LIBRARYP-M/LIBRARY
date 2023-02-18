@@ -39,7 +39,7 @@ module.exports.doCreate = (req, res, next) => {
 
   Book.create(newBook)
     .then((book) => {
-      res.redirect("/");
+      res.redirect("/books/browser");
     })
     .catch((err) => {
       console.log("catch");

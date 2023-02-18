@@ -47,7 +47,7 @@ module.exports.doSignup = (req, res, next) => {
 
           return User.create(profileInfo)
             .then((userCreated) => {
-              res.redirect("/");
+              res.redirect("/books/browser");
             });
         }
       })
