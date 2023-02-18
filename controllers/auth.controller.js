@@ -33,9 +33,22 @@ module.exports.doSignup = (req, res, next) => {
         if (user) {
           renderWithErrors({ email: "username or email already in use" });
         } else {
-         return User.create(req.body).then((userCreated) => {
-            res.redirect("/");
-          });
+          const profileInfo = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+          }
+
+          if(req.file) {
+            profileInfo.image = req.file.path
+          }
+
+          return User.create(profileInfo)
+            .then((userCreated) => {
+              res.redirect("/");
+            });
         }
       })
       .catch((err) => {

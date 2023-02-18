@@ -22,6 +22,8 @@ module.exports.doCreate = (req, res, next) => {
     });
   };
 
+  console.log(req.file)
+
   const newBook = {
     title: req.body.title,
     author: req.body.author,
@@ -30,6 +32,10 @@ module.exports.doCreate = (req, res, next) => {
     genre: req.body.genre,
     user: req.user.id,
   };
+
+  if(req.file) {
+    newBook.image = req.file.path
+  }
 
   Book.create(newBook)
     .then((book) => {
@@ -61,7 +67,7 @@ module.exports.home = (req, res, next) => {
   }
 };
 
-}
+
 
 module.exports.list = (req, res, next) => {
   Book.find({user: req.user.id})
