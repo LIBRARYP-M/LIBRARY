@@ -51,23 +51,21 @@ module.exports.doCreate = (req, res, next) => {
     });
 };
 
-module.exports.home = (req, res, next) => {
+module.exports.browser = (req, res, next) => {
   if (req.user) {
     Book.find({user: {$ne: req.user.id}})
     .then((books) => {
-      res.render("home", { books });
+      res.render("books/booksBrowser", { books });
     })
     .catch(next)
   } else {
   Book.find()
     .then((books) => {
-      res.render("home", { books });
+      res.render("books/booksBrowser", { books });
     })
     .catch(next)
   }
 };
-
-
 
 module.exports.list = (req, res, next) => {
   Book.find({user: req.user.id})

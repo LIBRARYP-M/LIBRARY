@@ -1,0 +1,21 @@
+    {{!-- <form class="list-filter-form" method="GET" action="/books/browser">
+      <div class="input-container">
+        <label for="exampleInputEmail1" class="form-label">Edition</label>
+        <input type="number" class="form-control" name="edition" />
+      </div>
+
+      <div class="input-container">
+        <label for="exampleInputEmail1" class="form-label">Author</label>
+        <input type="text" class="form-control" name="author" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div> --}}
+
+<h1>Books list</h1>
+
+{{#each books as |book|}}
+  <p>{{book.title}}</p>
+  <p>{{book.genre}}</p>
+{{/each}}

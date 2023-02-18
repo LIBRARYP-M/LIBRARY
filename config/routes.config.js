@@ -4,7 +4,9 @@ const authMiddleware = require("../middlewares/auth.middleware");
 const booksController = require("../controllers/books.controller");
 const upload = require('../config/cloudinary.config');
 
-router.get('/', booksController.home);
+router.get('/');
+
+router.get('/books/browser', booksController.browser);
 
 router.get("/signup", authMiddleware.isNotAuthenticated, authController.signup);
 router.post("/signup", authMiddleware.isNotAuthenticated, upload.single('image'), authController.doSignup);
