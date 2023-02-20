@@ -15,7 +15,7 @@ const GOOGLE_SCOPES = [
 router.get('/login/google', passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authController.doLoginGoogle);
 
-router.get('/');
+router.get('/',authController.home);
 
 router.get('/books/browser', booksController.browser);
 
