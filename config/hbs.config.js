@@ -20,3 +20,23 @@ hbs.registerHelper("findSelected", function (options) {
     return options.inverse(this);
   }
 })
+
+hbs.registerHelper("yourLoan", function (options) {
+  const { petitionerId, userId } = options.hash
+
+  if(petitionerId === userId) {
+    return options.fn(this)
+  } else {
+    return options.inverse(this)
+  }
+})
+
+hbs.registerHelper("notYourLoan", function (options) {
+  const { petitionerId, userId } = options.hash
+
+  if(petitionerId !== userId) {
+    return options.fn(this)
+  } else {
+    return options.inverse(this)
+  }
+})

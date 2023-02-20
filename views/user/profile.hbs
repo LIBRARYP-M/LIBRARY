@@ -1,0 +1,79 @@
+<div>
+  <div class="d-flex" id="user-info-container">
+    <img src="{{user.image}}" id="user-image-profile"/>
+    <div>
+      <h3>{{user.firstName}} {{user.lastName}}</h3>
+      <h5 class="text-secondary">@{{user.username}}</h5>
+    </div>
+  </div>
+  <div class="info-container">
+    <div id="buttons-container">
+      <button class="profile-main-button btn-clicked" id="my-books-btn">My books</button>
+      <button class="profile-main-button btn-not-clicked" id="my-exchanges-btn">My exchanges</button>
+      <button class="profile-main-button btn-not-clicked" id="my-loans-btn">My loans</button>
+    </div>
+    <div id="my-books-container" class="container-when-clicked">
+      {{#each books as |book|}}
+        <div class="book-card">
+          <div class="book-info">
+            <img src="{{book.image}}" class="book-image"/>
+            <div>
+              <p class="p-no-margin title">{{book.title}}</p>
+              <p class="p-no-margin author">{{book.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{book.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{book.language}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="edit-delete-books">
+            <a class="fa-solid fa-pen-to-square btn btn-primary" type="submit" href="/books/{{book.id}}/edit"></a>
+            <form action="/books/{{book.id}}/delete" method="POST">
+              <button class="fa-solid fa-trash btn btn-danger" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div id="my-exchanges-container" class="container-when-not-clicked">
+      {{#each exchangesArr as |exchange|}}
+        <div class="exchange-card">
+          <div class="petitioner-info">
+            <img src="{{exchange.petitionerBook.image}}" class="exchange-image"/>
+            <div>
+              <h6 class="p-no-margin text-secondary">@{{exchange.petitionerUser.username}}</h6>
+              <p class="p-no-margin title">{{exchange.petitionerBook.title}}</p>
+              <p class="p-no-margin author">{{exchange.petitionerBook.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{exchange.petitionerBook.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{exchange.petitionerBook.language}}</p>
+              </div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right-arrow-left exchange-arrows"></i>
+          <div class="receiver-info">
+            <img src="{{exchange.receiverBook.image}}" class="exchange-image"/>
+            <div>
+              <h6 class="p-no-margin text-secondary">@{{exchange.receiverUser.username}}</h6>
+              <p class="p-no-margin title">{{exchange.receiverBook.title}}</p>
+              <p class="p-no-margin author">{{exchange.receiverBook.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{exchange.receiverBook.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{exchange.receiverBook.language}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <div id="my-loans-container" class="container-when-not-clicked">
+      {{#each loansArr as |loan|}}
+        <div class="loan-image-arrow">
+          <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=req.user.id}}loan-type{{/yourLoan}}"></i>
+          <img src="{{loan.receiverBook.image}}" class="loaned-book-image"/>
+          <i class="fa-solid fa-arrow-right loan-arrows {{#notYourLoan petitionerId=loan.petitionerUser.id userId=req.user.id}}loan-type{{/notYourLoan}}"></i>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
