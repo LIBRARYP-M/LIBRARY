@@ -39,7 +39,10 @@ const exchangeRouter = require("./routers/exchange.router");
 app.use("/exchange", exchangeRouter);
 
 const loanRouter = require("./routers/loan.router");
-app.use("loan", loanRouter)
+app.use("/loan", loanRouter);
+
+const userRouter = require("./routers/user.router");
+app.use("/user", userRouter)
 
 app.use((req, res, next) => {
   next(createError(404, "Resource not found"));

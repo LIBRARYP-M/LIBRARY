@@ -23,8 +23,10 @@ const sendMail = (emailToSend, emailType, type, user, id) => {
     mailOptions.html = generateRequestEmail(type, user, id)
   } else if (emailType === "accepted") {
     mailOptions.html = generateAcceptedEmail(type, user, id)
+    mailOptions.subject = `${type} accepted!`
   } else if (emailType === "rejected") {
     mailOptions.html = generateRejectedEmail(type, user, id)
+    mailOptions.subject = `${type} request rejected`
   }
 
   transporter.sendMail(mailOptions, function (error, info) {

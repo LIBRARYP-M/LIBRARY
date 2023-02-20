@@ -2,6 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
+
+/* sizes for media queries:
+  Small (smaller than 640px)
+  Medium (641px to 1007px)
+  Large (1008px and larger) */
+
+
 body{
   margin: 0 px;
 } 
@@ -75,4 +82,393 @@ body{
 
 nav {
   background-color: #0a2b06;
+}
+
+
+/* profile styles */
+
+@media (max-width: 640px) {
+  #user-info-container {
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #user-image-profile {
+    width: 70px;
+    border-radius: 50%;
+  }
+
+  #buttons-container {
+    margin-top: 35px;
+    margin-left: 20px;
+    display: flex;
+    gap: 2px;
+  }
+
+  .profile-main-button {
+    all: unset;
+    padding: 5px 15px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .btn-not-clicked {
+    background-color: #e0e4e7;
+  }
+
+  .btn-clicked {
+    background-color: #f4d661;
+  }
+
+  #my-books-container, #my-exchanges-container {
+    margin: 20px;
+  }
+
+  .book-card {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #eef1f3;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .book-image {
+    height: 70px;
+    width: auto;
+    border-radius: 5px;
+  }
+
+  .p-no-margin {
+    margin: 0;
+  }
+
+  .title {
+    font-size: large;
+    font-weight: 600;
+  }
+
+  .extra-book-info {
+    display: flex;
+    gap: 4px;
+  }
+
+  .yellow-tag {
+    margin-top: 5px;
+    padding: 3px 7px;
+    background-color: rgb(251, 222, 133);
+    border-radius: 5px;
+  }
+
+  .edit-delete-books {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .container-when-clicked {
+    display: block;
+  }
+
+  .container-when-not-clicked {
+    display: none;
+  }
+
+  .exchange-card {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #eef1f3;
+    margin-bottom: 10px;
+  }
+
+  .petitioner-info, .receiver-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .exchange-image {
+    width: 70px;
+    border-radius: 5px;
+  }
+
+  .exchange-arrows {
+    margin: 10px 0 10px 30px;
+  }
+
+  .loan-image-arrow {
+    display: flex;
+    gap: 20px;
+  }
+
+  .loan-arrows {
+    display: none;
+  }
+
+  .loan-type {
+    display: block !important;
+  }
+
+  .loaned-book-image {
+    width: 70px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1007px) {
+  #user-info-container {
+    gap: 30px;
+    margin-left: 60px;
+    margin-top: 30px;
+  }
+
+  #user-image-profile {
+    width: 70px;
+    border-radius: 50%;
+  }
+
+  #buttons-container {
+    margin-top: 35px;
+    margin-left: 40px;
+    display: flex;
+    gap: 2px;
+    font-size: 22px;
+  }
+
+  .profile-main-button {
+    all: unset;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .btn-not-clicked {
+    background-color: #e0e4e7;
+  }
+
+  .btn-clicked {
+    background-color: #f4d661;
+  }
+
+  #my-books-container, #my-exchanges-container {
+    margin: 20px 40px;
+  }
+
+  .book-card {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #eef1f3;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .book-image {
+    height: 90px;
+    width: auto;
+    border-radius: 5px;
+  }
+
+  .p-no-margin {
+    margin: 0;
+  }
+
+  .title {
+    /* font-size: large; */
+    font-weight: 600;
+  }
+
+  .extra-book-info {
+    display: flex;
+    gap: 6px;
+  }
+
+  .yellow-tag {
+    margin-top: 5px;
+    padding: 3px 7px;
+    background-color: rgb(251, 222, 133);
+    border-radius: 5px;
+  }
+
+  .edit-delete-books {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .edit-delete-books > form > button, .edit-delete-books > a {
+    padding: 12px;
+  }
+
+  .container-when-clicked {
+    display: block;
+  }
+
+  .container-when-not-clicked {
+    display: none;
+  }
+
+  .exchange-card {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #eef1f3;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .petitioner-info, .receiver-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .exchange-image {
+    width: 90px;
+    border-radius: 5px;
+  }
+
+  .exchange-arrows {
+    margin: 10px 0 10px 30px;
+  }
+}
+
+
+@media (min-width: 1008px) {
+  #user-info-container {
+    gap: 30px;
+    margin-left: 60px;
+    margin-top: 30px;
+  }
+
+  #user-image-profile {
+    width: 70px;
+    border-radius: 50%;
+  }
+
+  .info-container {
+    display: flex;
+  }
+
+  #buttons-container {
+    margin-top: 35px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 22px;
+  }
+
+  .profile-main-button {
+    all: unset;
+    padding: 10px 20px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .btn-not-clicked {
+    background-color: #e0e4e7;
+  }
+
+  .btn-clicked {
+    background-color: #f4d661;
+  }
+
+  #my-books-container {
+    margin: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .book-card {
+    border-radius: 10px;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: #eef1f3;
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-align: center;
+    width: 275px;
+  }
+
+  .book-image {
+    height: 120px;
+    width: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .p-no-margin {
+    margin: 0;
+  }
+
+  .title {
+    /* font-size: large; */
+    font-weight: 600;
+  }
+
+  .extra-book-info {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin: 10px 0 15px 0;
+  }
+
+  .yellow-tag {
+    margin-top: 5px;
+    padding: 3px 7px;
+    background-color: rgb(251, 222, 133);
+    border-radius: 5px;
+  }
+
+  .edit-delete-books {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+  }
+
+  .edit-delete-books > form > button, .edit-delete-books > a {
+    padding: 12px;
+  }
+
+  .container-when-clicked {
+    display: block;
+  }
+
+  .container-when-not-clicked {
+    display: none !important;
+  }
+
+  #my-exchanges-container {
+    margin: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .exchange-card {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #eef1f3;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .petitioner-info, .receiver-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .exchange-image {
+    width: 90px;
+    border-radius: 5px;
+  }
+
+  .exchange-arrows {
+    margin: 10px 0 10px 30px;
+  }
 }
