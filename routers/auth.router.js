@@ -10,6 +10,8 @@ const GOOGLE_SCOPES = [
   "https://www.googleapis.com/auth/userinfo.email"
 ];
 
+router.get('/',authController.home);
+
 router.get('/login/google', passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authController.doLoginGoogle);
 
