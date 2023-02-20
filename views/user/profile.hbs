@@ -68,10 +68,33 @@
     </div>
     <div id="my-loans-container" class="container-when-not-clicked">
       {{#each loansArr as |loan|}}
-        <div class="loan-image-arrow">
-          <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=req.user.id}}loan-type{{/yourLoan}}"></i>
-          <img src="{{loan.receiverBook.image}}" class="loaned-book-image"/>
-          <i class="fa-solid fa-arrow-right loan-arrows {{#notYourLoan petitionerId=loan.petitionerUser.id userId=req.user.id}}loan-type{{/notYourLoan}}"></i>
+        <div class="loan-card">
+          <div class="loan-image-arrow">
+            <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}loan-type{{/yourLoan}}"></i>
+            <img src="{{loan.receiverBook.image}}" class="loaned-book-image"/>
+            <i class="fa-solid fa-arrow-right loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}hidden{{else}}loan-type{{/yourLoan}}"></i>
+          </div>
+          {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}
+            <div>
+              <h6 class="p-no-margin text-secondary">From @{{loan.receiverUser.username}}</h6>
+              <p class="p-no-margin title">{{loan.receiverBook.title}}</p>
+              <p class="p-no-margin author">{{loan.receiverBook.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{loan.receiverBook.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{loan.receiverBook.language}}</p>
+              </div>
+            </div>
+          {{else}}
+            <div>
+              <h6 class="p-no-margin text-secondary">To @{{loan.petitionerUser.username}}</h6>
+              <p class="p-no-margin title">{{loan.receiverBook.title}}</p>
+              <p class="p-no-margin author">{{loan.receiverBook.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{loan.receiverBook.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{loan.receiverBook.language}}</p>
+              </div>
+            </div>
+          {{/yourLoan}}
         </div>
       {{/each}}
     </div>

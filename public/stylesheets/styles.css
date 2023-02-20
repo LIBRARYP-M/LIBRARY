@@ -223,7 +223,7 @@ span{
     background-color: #f4d661;
   }
 
-  #my-books-container, #my-exchanges-container {
+  #my-books-container, #my-exchanges-container, #my-loans-container {
     margin: 20px;
   }
 
@@ -301,9 +301,21 @@ span{
     margin: 10px 0 10px 30px;
   }
 
+  /* starts loan styles */
+
+  .loan-card {
+    background-color: #eef1f3;
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+
   .loan-image-arrow {
     display: flex;
     gap: 20px;
+    margin-bottom: 20px;
   }
 
   .loan-arrows {
@@ -312,10 +324,15 @@ span{
 
   .loan-type {
     display: block !important;
+    align-self: center;
   }
 
   .loaned-book-image {
     width: 70px;
+  }
+
+  .hidden {
+    display: none !important;
   }
 }
 
@@ -353,7 +370,7 @@ span{
     background-color: #f4d661;
   }
 
-  #my-books-container, #my-exchanges-container {
+  #my-books-container, #my-exchanges-container, #my-loans-container {
     margin: 20px 40px;
   }
 
@@ -435,6 +452,39 @@ span{
 
   .exchange-arrows {
     margin: 10px 0 10px 30px;
+  }
+
+  .loan-card {
+    background-color: #eef1f3;
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .loan-image-arrow {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .loan-arrows {
+    display: none;
+  }
+
+  .loan-type {
+    display: block !important;
+    align-self: center;
+  }
+
+  .loaned-book-image {
+    width: 70px;
+  }
+
+  .hidden {
+    display: none !important;
   }
 }
 
@@ -573,5 +623,45 @@ span{
 
   .exchange-arrows {
     margin: 10px 0 10px 30px;
+  }
+
+  #my-loans-container {
+    margin: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .loan-card {
+    background-color: #eef1f3;
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .loan-image-arrow {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .loan-arrows {
+    display: none;
+  }
+
+  .loan-type {
+    display: block !important;
+    align-self: center;
+  }
+
+  .loaned-book-image {
+    width: 70px;
+  }
+
+  .hidden {
+    display: none !important;
   }
 }
