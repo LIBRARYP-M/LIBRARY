@@ -776,3 +776,16 @@ span{
 .user-info small {
   color: #545d7a;
 }
+
+
+.pending-border {
+  border: 2px solid rgb(62, 62, 204);
+}
+
+.accepted-border {
+  border: 2px solid rgb(49, 177, 49);
+}
+
+.rejected-border {
+  border: 2px solid rgb(228, 55, 55);
+}
