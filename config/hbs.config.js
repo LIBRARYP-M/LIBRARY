@@ -24,9 +24,13 @@ hbs.registerHelper("findSelected", function (options) {
 hbs.registerHelper("yourLoan", function (options) {
   const { petitionerId, userId } = options.hash
 
+  // console.log(petitionerId, userId)
+
   if(petitionerId === userId) {
+    console.log("if")
     return options.fn(this)
   } else {
+    console.log("else")
     return options.inverse(this)
   }
 })
