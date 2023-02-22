@@ -1,19 +1,22 @@
-<div class="d-flex">
-  {{#each books as |book|}}
-    <div class="card w-25 text-center">
-      <img src="{{book.image}}"/>
-      <h3>{{book.title}}</h3>
-      <h4>{{book.author}}</h4>
-      <p><span class="text-secondary">LANGUAGE: </span>{{book.language}}</p>
-      <p><span class="text-secondary">GENRE: </span>{{book.genre}}</p>
-      {{#if book.specialEdition}}
-      <p>Special edition</p>
-      {{/if}}
-      <div class="d-flex justify-content-center gap-2">
-        <form action="/exchange/{{book.id}}/{{../bookId}}/create" method="POST">
-          <button class="fa-solid fa-check btn btn-success" type="submit"></button>
-        </form>
-      </div>
+<div id="my-books-container" class="container-when-clicked">
+      {{#each books as |book|}}
+        <div class="book-card">
+          <div class="book-info">
+            <img src="{{book.image}}" class="book-image"/>
+            <div>
+              <p class="p-no-margin title">{{book.title}}</p>
+              <p class="p-no-margin author">{{book.author}}</p>
+              <div class="extra-book-info">
+                <p class="p-no-margin yellow-tag">{{book.genre}}</p>
+                <p class="p-no-margin yellow-tag">{{book.language}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center gap-2">
+            <form action="/exchange/{{book.id}}/{{../bookId}}/create" method="POST">
+              <button class="fa-solid fa-check btn btn-success" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
-</div>
