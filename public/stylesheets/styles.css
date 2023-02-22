@@ -588,7 +588,7 @@ span{
   }
 }
 
-/* TEST PRUEBAS*/
+/* BROWSER*/
 .container-browser {
   display: flex;
   justify-content: space-evenly;
@@ -596,6 +596,7 @@ span{
   background-image: url(../images/Browser_background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  
 }
 
 .card-browser {
@@ -680,3 +681,4 @@ span{
 .user-info small {
   color: #545d7a;
 }
+

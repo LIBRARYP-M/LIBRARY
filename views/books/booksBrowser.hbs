@@ -1,4 +1,6 @@
-{{!-- <h1>Books list</h1>
+{{!-- 
+OLD VERSION
+<h1>Books list</h1>
 https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
 {{#each books as |book|}}
   <p>{{book.title}}</p>
@@ -9,8 +11,17 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
   </form>
 {{/each}} --}}
 
+ 
+<div>
+  <div class="input-container">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input id="browser-input" type="text" class="form-control" name="title" />
+  </div>
 
-  
+  <button id="browser-btn" class="btn btn-primary">Submit</button>
+</div>
+
+
 <div class="container-browser">
   {{#each books as |book|}}
   <div class="card-browser">
@@ -28,10 +39,10 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
         </form>
       </div>
       <div class="user">
-        <img src={{book.image}} alt="user" />
+        <img src={{book.user.image}} alt="user" />
         <div class="user-info">
           <small>Book's owner</small>
-          <h5>{{book.user}}</h5>
+          <h5>{{book.user.username}}</h5>
         </div>
       </div>
     </div>
@@ -39,3 +50,12 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
   {{/each}}
 </div>
 
+<script>
+  const button = document.querySelector('#browser-btn');
+  const input = document.querySelector('#browser-input');
+
+  button.addEventListener('click', () => {
+    const criteria = input.value;
+    document.location.pathname = `/books/browser/${criteria}`;
+  })
+</script>
