@@ -654,6 +654,7 @@ span{
     border-radius: 15px;
     margin-bottom: 20px;
     font-size: 22px;
+    align-items: center;
   }
 
   .loan-image-arrow {
@@ -672,7 +673,8 @@ span{
   }
 
   .loaned-book-image {
-    width: 70px;
+    width: 90px;
+    height: auto;
     border-radius: 15px;
   }
 
