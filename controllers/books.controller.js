@@ -120,9 +120,22 @@ module.exports.edit = (req, res, next) => {
 }
 
 module.exports.doEdit = (req, res, next) => {
-  Book.findByIdAndUpdate(req.params.id, req.body)
+  const updatedBook = {
+    title: req.body.title,
+    author: req.body.author,
+    language: req.body.language,
+    specialEdition: specialEditionParser(req.body.specialEdition),
+    genre: req.body.genre,
+    user: req.user.id,
+  };
+
+  if(req.file) {
+    updatedBook.image = req.file.path
+  }
+
+  Book.findByIdAndUpdate(req.params.id, updatedBook)
     .then(() => {
-      res.redirect("/books/list")
+      res.redirect("/books/browser")
     })
     .catch(next)
 }

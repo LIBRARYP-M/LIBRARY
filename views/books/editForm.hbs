@@ -1,7 +1,7 @@
 <div class="container-sg-level-1">
   <div class="container-sg-level-2">
 
-<form class="create-book-form" action="/books/{{book.id}}/edit" method="POST">
+<form class="create-book-form" action="/books/{{book.id}}/edit" method="POST" enctype="multipart/form-data">
   <h1 class="text-sg">Edit book</h1>
   <div class="mb-3">
     <label class="form-label">Title</label>
@@ -54,10 +54,10 @@
     </div>
   </div>
   {{!-- Para cloudinary --}}
-  {{!-- <div class="mb-3">
-    <label class="form-label">Image</label>
-    <input type="text" class="form-control" name="image" />
-  </div> --}}
+  <div class="mb-3">
+    {{!-- <label for="image" class="form-label">Book image</label> --}}
+    <input data-buttonText="Your label here." type="file" name="image" id="image" placeholder="Choose profile picture">
+  </div>
 <button type="submit" class="btn btn-primary">Edit</button>
 </form>
 
