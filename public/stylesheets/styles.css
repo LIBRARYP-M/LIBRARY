@@ -329,6 +329,7 @@ span{
 
   .loaned-book-image {
     width: 70px;
+    border-radius: 15px;
   }
 
   .hidden {
@@ -481,6 +482,7 @@ span{
 
   .loaned-book-image {
     width: 70px;
+    border-radius: 15px;
   }
 
   .hidden {
@@ -659,6 +661,7 @@ span{
 
   .loaned-book-image {
     width: 70px;
+    border-radius: 15px;
   }
 
   .hidden {

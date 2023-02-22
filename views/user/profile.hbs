@@ -70,7 +70,7 @@
       {{#each loansArr as |loan|}}
         <div class="loan-card">
           <div class="loan-image-arrow">
-            <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}loan-type{{/yourLoan}}"></i>
+            <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}loan-type{{else}}hidden{{/yourLoan}}"></i>
             <img src="{{loan.receiverBook.image}}" class="loaned-book-image"/>
             <i class="fa-solid fa-arrow-right loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}hidden{{else}}loan-type{{/yourLoan}}"></i>
           </div>
