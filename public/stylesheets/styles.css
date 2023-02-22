@@ -127,7 +127,7 @@ span{
   margin-top: 10%;
 }
 
-.form-control {
+.container-sg-level-2 .form-control {
   font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   background: #e9ecef;
   padding: 10px;
@@ -682,14 +682,53 @@ span{
 }
 
 /* BROWSER*/
-.container-browser {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+
+.container-first-browser{
   background-image: url(../images/Browser_background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  
+  min-width: calc(100vw - 0px);
+  min-height: calc(100vh - 56px);
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#browser-input{
+font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+background: #e9ecef;
+height: 50px;
+border-radius: 50px;
+box-shadow: inset 3px 3px 3px #cbced1;
+}
+
+.browser-btn-fil{
+  /* padding: 12px 12px; */
+  border: 1px solid transparent;
+  border-radius: 32px;
+  text-align: center;
+  color: #e9ecef;
+  background-color:#404142;
+  text-decoration:none;
+  width: 70px;
+  height: 50px;
+  /* margin-top: 28px; */
+  margin-left: 2px;
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+#browser-input{
+  width: 400px;
+}
+.container-browser {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap; 
 }
 
 .card-browser {
