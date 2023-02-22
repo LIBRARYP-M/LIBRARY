@@ -17,11 +17,12 @@ module.exports.profile = (req,res, next) => {
                 const receiverBookPromise = Book.findById(exchange.bookFromReceiver)
                 const petitionerUserPromise = User.findById(exchange.petitioner)
                 const receiverUserPromise = User.findById(exchange.receiver)
+                const status = exchange.status
 
                 Promise.all([petitionerBookPromise, receiverBookPromise, petitionerUserPromise, receiverUserPromise])
                   .then(response => {
                     const [petitionerBook, receiverBook, petitionerUser, receiverUser] = response
-                    exchangesArr.push({petitionerBook, receiverBook, petitionerUser, receiverUser})
+                    exchangesArr.push({petitionerBook, receiverBook, petitionerUser, receiverUser, status})
                     if(exchangesArr.length === exchanges.length) {
                       exchangeFinished = true
                     }
@@ -38,11 +39,12 @@ module.exports.profile = (req,res, next) => {
                       const receiverBookPromise = Book.findById(loan.bookFromReceiver)
                       const petitionerUserPromise = User.findById(loan.petitioner)
                       const receiverUserPromise = User.findById(loan.receiver)
+                      const status = loan.status
 
                       Promise.all([receiverBookPromise, petitionerUserPromise, receiverUserPromise])
                         .then(response => {
                           const [receiverBook, petitionerUser, receiverUser] = response
-                          loansArr.push({receiverBook, petitionerUser, receiverUser})
+                          loansArr.push({receiverBook, petitionerUser, receiverUser, status})
                           if(loansArr.length === loans.length) {
                             loansFinished = true
                           }

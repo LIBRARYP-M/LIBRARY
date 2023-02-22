@@ -37,7 +37,7 @@
     </div>
     <div id="my-exchanges-container" class="container-when-not-clicked">
       {{#each exchangesArr as |exchange|}}
-        <div class="exchange-card">
+        <div class="exchange-card {{#statusChecker status=exchange.status statusToCheck="pendingAcceptance"}}pending-border{{/statusChecker}}{{#statusChecker status=exchange.status statusToCheck="accepted"}}accepted-border{{/statusChecker}}{{#statusChecker status=loan.status statusToCheck="rejected"}}rejected-border{{/statusChecker}}">
           <div class="petitioner-info">
             <img src="{{exchange.petitionerBook.image}}" class="exchange-image"/>
             <div>
@@ -68,7 +68,7 @@
     </div>
     <div id="my-loans-container" class="container-when-not-clicked">
       {{#each loansArr as |loan|}}
-        <div class="loan-card">
+        <div class="loan-card {{#statusChecker status=loan.status statusToCheck="pendingAcceptance"}}pending-border{{/statusChecker}}{{#statusChecker status=loan.status statusToCheck="accepted"}}accepted-border{{/statusChecker}}{{#statusChecker status=loan.status statusToCheck="rejected"}}rejected-border{{/statusChecker}}">
           <div class="loan-image-arrow">
             <i class="fa-solid fa-arrow-left loan-arrows {{#yourLoan petitionerId=loan.petitionerUser.id userId=../currentUser.id}}loan-type{{else}}hidden{{/yourLoan}}"></i>
             <img src="{{loan.receiverBook.image}}" class="loaned-book-image"/>
