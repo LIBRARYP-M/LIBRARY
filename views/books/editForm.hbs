@@ -1,5 +1,8 @@
+<div class="container-sg-level-1">
+  <div class="container-sg-level-2">
+
 <form class="create-book-form" action="/books/{{book.id}}/edit" method="POST">
-  <h3 class="mb-4">Edit book</h3>
+  <h1 class="text-sg">Edit book</h1>
   <div class="mb-3">
     <label class="form-label">Title</label>
     <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required/>
@@ -55,5 +58,11 @@
     <label class="form-label">Image</label>
     <input type="text" class="form-control" name="image" />
   </div> --}}
-  <button type="submit" class="btn btn-primary">Edit</button>
+<button type="submit" class="btn btn-primary">Edit</button>
 </form>
+
+</div>
+</div>
+
+
+{{!-- TEST --}}

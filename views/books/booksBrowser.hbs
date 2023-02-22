@@ -1,20 +1,7 @@
-    {{!-- <form class="list-filter-form" method="GET" action="/books/browser">
-      <div class="input-container">
-        <label for="exampleInputEmail1" class="form-label">Edition</label>
-        <input type="number" class="form-control" name="edition" />
-      </div>
-
-      <div class="input-container">
-        <label for="exampleInputEmail1" class="form-label">Author</label>
-        <input type="text" class="form-control" name="author" />
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div> --}}
-
+{{!-- 
+OLD VERSION
 <h1>Books list</h1>
-
+https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
 {{#each books as |book|}}
   <p>{{book.title}}</p>
   <p>{{book.genre}}</p>
@@ -22,4 +9,53 @@
   <form action="/loan/{{book.id}}/create" method="POST">
     <button class="fa-solid fa-right-long btn btn-primary" type="submit"></button>
   </form>
-{{/each}}
+{{/each}} --}}
+
+ 
+<div>
+  <div class="input-container">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input id="browser-input" type="text" class="form-control" name="title" />
+  </div>
+
+  <button id="browser-btn" class="btn btn-primary">Submit</button>
+</div>
+
+
+<div class="container-browser">
+  {{#each books as |book|}}
+  <div class="card-browser">
+    <div class="card-header">
+      <img src="{{book.image}}" />
+    </div>
+    <div class="card-body">
+      <span class="tag tag-teal">{{book.genre}}</span>
+      <h3>{{book.title}}</h3>
+      <h4>{{book.author}}</h4>
+      <div class="actions-exchange-loan">
+        <a class="fa-solid fa-arrow-right-arrow-left btn btn-warning" type="submit" href="/exchange/{{book.id}}/prepareSelection"><span class="text-exchange-loan">Exchange</span></a>
+        <form action="/loan/{{book.id}}/create" method="POST">
+        <button class="fa-solid fa-right-long btn btn-primary" type="submit"><span class="text-exchange-loan">Loan</span></button>
+        </form>
+      </div>
+      <div class="user">
+        <img src={{book.user.image}} alt="user" />
+        <div class="user-info">
+          <small>Book's owner</small>
+          <h5>{{book.user.username}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<script>
+  const button = document.querySelector('#browser-btn');
+  const input = document.querySelector('#browser-input');
+
+  button.addEventListener('click', () => {
+    const criteria = input.value;
+    document.location.pathname = `/books/browser/${criteria}`;
+  })
+</script>

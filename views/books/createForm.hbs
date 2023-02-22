@@ -1,23 +1,27 @@
+<div class="container-sg-level-1">
+  <div class="container-sg-level-2">
+
+
 <form action="/books/create" class="create-book-form" method="POST" enctype="multipart/form-data">
-  <h3 class="mb-4">Create your book</h3>
+  <h1 class="text-sg">Create book</h1>
   <div class="mb-3">
-    <label class="form-label">Title</label>
-    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required/>
+    {{!-- <label class="form-label">Title</label> --}}
+    <input type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" name="title" value="{{book.title}}" required placeholder="Title"/>
     <div class="invalid-feedback">
       {{errors.title}}
     </div>
   </div>
   <div class="mb-3">
-    <label class="form-label">Author</label>
-    <input type="text" class="form-control {{#if errors.author}}is-invalid{{/if}}" name="author" value="{{book.author}}" required/>
+    {{!-- <label class="form-label">Author</label> --}}
+    <input type="text" class="form-control {{#if errors.author}}is-invalid{{/if}}" name="author" value="{{book.author}}" required placeholder="Author"/>
     <div class="invalid-feedback">
       {{errors.author}}
     </div>
   </div>
   <div class="mb-3">
-    <label class="form-label">Language</label>
+    {{!-- <label class="form-label">Language</label> --}}
     <select type="text" class="form-control {{#if errors.language}}is-invalid{{/if}}" name="language" required>
-    <option disabled selected value>Select option</option>
+    <option disabled selected value>Book's language</option>
       {{#each languages as  |language|}}
         <option value="{{language}}" {{#if book.language}}{{#findSelected language=book.language languageToCheck=language}}selected{{/findSelected}}{{/if}}>{{language}}</option>
       {{/each}}
@@ -25,9 +29,9 @@
  
   </div>
   <div class="mb-3">
-    <label class="form-label">Special Edition</label>
+    {{!-- <label class="form-label">Select if it is special edition</label> --}}
     <select type="text" class="form-control {{#if errors.specialEdition}}is-invalid{{/if}}" name="specialEdition" required>
-      <option disabled selected value>Select option</option>
+      <option disabled selected value>Select if it is special edition</option>
       <option  value="true">Yes</option>
       <option  value="false">No</option>
     </select>
@@ -36,9 +40,9 @@
     </div>
   </div>
    <div class="mb-3">
-    <label class="form-label">Genre</label>
+    {{!-- <label class="form-label">Genre</label> --}}
     <select type="text" class="form-control {{#if errors.genre}}is-invalid{{/if}}" name="genre" required>
-      <option disabled selected value>Select option</option>
+      <option disabled selected value>Select book's genre</option>
       {{#each genres as  |genre|}}
         <option value="{{genre}}">{{genre}}</option>
       {{/each}}
@@ -48,8 +52,14 @@
     </div>
   </div>
   <div class="mb-3">
-    <label for="image" class="form-label">Book image</label>
-    <input class="form-control" type="file" name="image" id="image">
+    {{!-- <label for="image" class="form-label">Book image</label> --}}
+    <input data-buttonText="Your label here." type="file" name="image" id="image" placeholder="Choose profile picture">
   </div>
-  <button type="submit" class="btn btn-primary">Create</button>
+  <div class="log-but-href">
+  <button type="submit" class="log-local">CREATE</button>
+  </div>
 </form>
+
+  </div>
+
+</div>

@@ -54,12 +54,14 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.browser = (req, res, next) => {
   if (req.user) {
     Book.find({user: {$ne: req.user.id}})
+    .populate('user')
     .then((books) => {
       res.render("books/booksBrowser", { books });
     })
     .catch(next)
   } else {
   Book.find()
+    .populate('user')
     .then((books) => {
       res.render("books/booksBrowser", { books });
     })
@@ -67,13 +69,45 @@ module.exports.browser = (req, res, next) => {
   }
 };
 
-module.exports.list = (req, res, next) => {
-  Book.find({user: req.user.id})
-    .then(books => {
-      res.render("books/booksList", { books })
+module.exports.browserFiltered = (req, res, next) => {
+  const { criteria } = req.params;
+
+  if (req.user) {
+    Book.find({user: {$ne: req.user.id}, title: criteria})
+    .populate('user')
+    .then((books) => {
+      console.log(books);
+      res.render("books/booksBrowser", { books });
     })
     .catch(next)
-}
+  } else {
+  Book.find({title: criteria})
+    .populate('user')
+    .then((books) => {
+      console.log(books);
+      res.render("books/booksBrowser", { books });
+    })
+    .catch(next)
+  }
+};
+
+/*USER BROWSER FILTER DOESN'T WORK*/
+
+// module.exports.find = (req, res) => {
+//   let criteria = {}
+
+//   if (req.query.title) {
+//     criteria.title = req.query.title
+//   }
+
+//   Book.find(criteria)
+//     .then(books => {
+//       res.render('books/booksBrowser', { booksBrowser: books, title: 'Books' }) 
+//     })
+//     .catch(err => res.send(err))
+// };
+
+/**/
 
 module.exports.edit = (req, res, next) => {
   console.log("slay")
