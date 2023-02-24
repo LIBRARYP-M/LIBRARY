@@ -1,8 +1,45 @@
-<h1>Exchange request</h1>
+{{!-- <h1>Exchange request</h1>
 <p>{{petitioner.firstName}} {{petitioner.lastName}} requested to exchange their {{bookFromPetitioner.title}} for your {{bookFromReceiver.title}}</p>
 <form action="/exchange/{{exchange.id}}/accept" method="POST">
   <button class="fa-solid fa-check btn btn-success" type="submit"></button>
 </form>
 <form action="/exchange/{{exchange.id}}/reject" method="POST">
   <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+</form> --}}
+
+
+<div class="loan-request-level-1">
+<div class="loan-request-level-2">
+  <div class="loan-request-img-container">
+    <div class="img-inner">
+      <div class="inner-skew">
+        <img src={{bookFromPetitioner.image}}>
+      </div>
+    </div>
+  </div>
+  <div class="text-container-2">
+    <p class="text-petitioner">@{{petitioner.username}}</p>
+    <p>has asked for an exchange:</p>
+    <p id="detail-book-loan"><span>His/her book:</span> {{bookFromPetitioner.title}}</p>
+    <p id="detail-book-loan"><span>Your book:</span> {{bookFromReceiver.title}}</p>
+    <div class="loan-actions">
+      <h8>Do you accept or reject the request?</h8>
+      </div>
+      <div class="loan-actions-post"> 
+     <form action="/exchange/{{exchange.id}}/accept" method="POST">
+  <button class="fa-solid fa-check btn btn-success" type="submit"></button>
 </form>
+<form action="/exchange/{{exchange.id}}/reject" method="POST">
+  <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+    </div>         
+  </div>
+  <div class="loan-request-img-container-2">
+    <div class="img-inner">
+      <div class="inner-skew">
+        <img src={{bookFromReceiver.image}}>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,8 +1,63 @@
-<h1>Loan request</h1>
+{{!-- <h1>Loan request</h1>
 <p>{{petitioner.firstName}} {{petitioner.lastName}} requested to loan your {{bookFromReceiver.title}}</p>
 <form action="/loan/{{loan.id}}/accept" method="POST">
   <button class="fa-solid fa-check btn btn-success" type="submit"></button>
 </form>
 <form action="/loan/{{loan.id}}/reject" method="POST">
   <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
-</form>
+</form> --}}
+
+{{!-- <div class="loan-exchange-level-1">
+<div class="loan-exchange-lel-2">
+    <div class="img-container">
+      <div class="img-inner">
+        <div class="inner-skew">
+  <img src={{bookFromReceiver.image}} alt="noodle"/>
+        </div>
+    </div>
+  </div> 
+  <strong class="recipe-title">@{{petitioner.username}} has asked to borrow your book</strong>
+  <span class="recipe-level">Book title: {{bookFromReceiver.title}}</span>
+  <div class="recipe-loan-exchange-actions">
+    <form action="/loan/{{loan.id}}/accept" method="POST">
+    <button class="fa-solid fa-check btn btn-success" type="submit"></button>
+    </form>
+    <form action="/loan/{{loan.id}}/reject" method="POST">
+    <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+    </form>
+  </div>
+</div>
+</div> --}}
+
+
+<div class="loan-request-level-1">
+<div class="loan-request-level-2">
+  <div class="loan-request-img-container">
+    <div class="img-inner">
+      <div class="inner-skew">
+        <img src={{bookFromReceiver.image}}>
+      </div>
+    </div>
+  </div>
+  <div class="text-container">
+    <p class="text-petitioner">@{{petitioner.username}}</p>
+    <p>has asked to borrow the following book:</p>
+    <p id="detail-book-loan"><span>Book title:</span> {{bookFromReceiver.title}}</p>
+    <p id="detail-book-loan"><span>Book author:</span> {{bookFromReceiver.author}}</p>
+    <div class="loan-actions">
+      <h8>Do you accept or reject the request?</h8>
+      </div>
+      <div class="loan-actions-post"> 
+       <form action="/loan/{{loan.id}}/accept" method="POST">
+    <button class="fa-solid fa-check btn btn-success" type="submit"></button>
+    </form>
+    <form action="/loan/{{loan.id}}/reject" method="POST">
+    <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+    </form>
+    </div>
+           
+  </div>
+
+</div>
+</div>
+</div>
