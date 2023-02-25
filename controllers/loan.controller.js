@@ -39,8 +39,11 @@ module.exports.request = (req, res, next) => {
 module.exports.doAccept = (req, res, next) => {
   Loan.findByIdAndUpdate(req.params.id, {"status": "accepted"})
     .then(loan => {
-      User.findById(loan.petitioner)
-        .then(user => {
+      const promise1 = Book.findByIdAndUpdate(loan.bookFromReceiver, {"inAnAcceptedRequest": "true"})
+      const userPromise = User.findById(loan.petitioner)
+      Promise.all([promise1, userPromise])
+        .then(response => {
+          const user = response[1]
           res.render("loan/accepted", { user })
           sendMail(user.email, "accepted", "loan", req.user, loan.id)
         })

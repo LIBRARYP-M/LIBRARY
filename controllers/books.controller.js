@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Book = require("../models/Book.model");
+const Exchange = require("../models/Exchange.model");
+const Loan = require("../models/Loan.model")
 const { specialEditionParser } = require("../models/helpers/books.helper");
 
 const languages = Book.schema.path("language").enumValues;
@@ -53,7 +55,7 @@ module.exports.doCreate = (req, res, next) => {
 
 module.exports.browser = (req, res, next) => {
   if (req.user) {
-    Book.find({user: {$ne: req.user.id}})
+    Book.find({$and: [{user: {$ne: req.user.id}}, {inAnAcceptedRequest: "false"}]})
     .populate('user')
     .then((books) => {
       res.render("books/booksBrowser", { books });
