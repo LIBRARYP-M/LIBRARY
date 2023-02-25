@@ -867,6 +867,34 @@ box-shadow: inset 3px 3px 3px #cbced1;
   background-color: #cd5b9f;
 }
 
+/* TAG-COLORS */
+
+.prose-tag {
+  background-color: #EE4266;
+}
+
+.fiction-tag {
+  background-color: #3BCEAC;
+}
+
+.drama-tag {
+  background-color: #540D6E;
+}
+
+.poetry-tag {
+  background-color: #0EAD69;
+}
+
+.nonFiction-tag {
+  background-color: #FFD23F;
+}
+
+.other-tag {
+  background-color: #777979;
+}
+
+/* TAG-COLORS OVER */
+
 .card-body p {
   font-size: 13px;
   margin: 0 0 40px;
@@ -903,6 +931,10 @@ box-shadow: inset 3px 3px 3px #cbced1;
   border: 2px solid rgb(228, 55, 55);
 }
 
+.closed-border {
+  border: 2px solid rgb(92, 92, 92);
+}
+
 
 /* .loan-exchange-lel-2:is(img, span, strong) {
   transform: translateY(-40px); 
@@ -913,8 +945,8 @@ box-shadow: inset 3px 3px 3px #cbced1;
 } */
  
 .card-browser:hover {
-  transform: translateY(-25px);
-  box-shadow: 0px 5px 10px 10px #404142;
+  transform: translateY(-15px);
+  box-shadow: 0px 5px 5px 5px #666564;
   /* transform: translateY(-25px);
   box-shadow: 0px 5px 10px 10px #404142; */
 }

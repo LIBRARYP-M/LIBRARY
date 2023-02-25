@@ -31,20 +31,20 @@ hbs.registerHelper("yourLoan", function (options) {
   }
 })
 
-// hbs.registerHelper("notYourLoan", function (options) {
-//   const { petitionerId, userId } = options.hash
-
-//   if(petitionerId !== userId) {
-//     return options.fn(this)
-//   } else {
-//     return options.inverse(this)
-//   }
-// })
-
 hbs.registerHelper("statusChecker", function (options) {
   const { status, statusToCheck } = options.hash
 
   if(status === statusToCheck) {
+    return options.fn(this)
+  } else {
+    return options.inverse(this)
+  }
+})
+
+hbs.registerHelper("genreChecker", function (options) {
+  const { genre, genreToCheck } = options.hash
+
+  if(genre === genreToCheck) {
     return options.fn(this)
   } else {
     return options.inverse(this)

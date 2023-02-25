@@ -80,3 +80,15 @@ module.exports.doReject = (req, res, next) => {
         })
     })
 }
+
+module.exports.doClose = (req, res, next) => {
+  Exchange.findByIdAndUpdate(req.params.id, {"status": "closed"})
+    .then(exchange => {
+      const promise1 = Book.findByIdAndUpdate(exchange.bookFromPetitioner, {"inAnAcceptedRequest": "false"})
+      const promise2 = Book.findByIdAndUpdate(exchange.bookFromReceiver, {"inAnAcceptedRequest": "false"})
+      Promise.all([promise1, promise2,])
+        .then(response => {
+          res.redirect("/user/profile")
+        })
+    })
+}

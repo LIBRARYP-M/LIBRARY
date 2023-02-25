@@ -5,6 +5,4 @@ const userController = require("../controllers/user.controller");
 
 router.get("/profile", authMiddleware.isAuthenticated, userController.profile)
 
-
-
 module.exports = router

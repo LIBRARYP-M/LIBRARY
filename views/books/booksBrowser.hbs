@@ -26,7 +26,14 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
       <img src="{{book.image}}" />
     </div>
     <div class="card-body">
-      <span class="tag tag-teal">{{book.genre}}</span>
+      <span class="tag 
+        {{#genreChecker genre=book.genre genreToCheck="Prose"}}prose-tag{{/genreChecker}}
+        {{#genreChecker genre=book.genre genreToCheck="Fiction"}}fiction-tag{{/genreChecker}}
+        {{#genreChecker genre=book.genre genreToCheck="Drama"}}drama-tag{{/genreChecker}}
+        {{#genreChecker genre=book.genre genreToCheck="Poetry"}}poetry-tag{{/genreChecker}}
+        {{#genreChecker genre=book.genre genreToCheck="Nonfiction"}}nonFiction-tag{{/genreChecker}}
+        {{#genreChecker genre=book.genre genreToCheck="Other"}}other-tag{{/genreChecker}}
+      ">{{book.genre}}</span>
       <h3>{{book.title}}</h3>
       <h4>{{book.author}}</h4>
       <div class="actions-exchange-loan">

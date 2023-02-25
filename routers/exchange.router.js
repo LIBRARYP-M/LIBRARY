@@ -12,4 +12,6 @@ router.get("/:id/request", authMiddleware.isAuthenticated, exchangeController.re
 router.post("/:id/accept", authMiddleware.isAuthenticated, exchangeController.doAccept)
 router.post("/:id/reject", authMiddleware.isAuthenticated, exchangeController.doReject)
 
+router.post("/:id/close", authMiddleware.isAuthenticated, exchangeController.doClose)
+
 module.exports = router
