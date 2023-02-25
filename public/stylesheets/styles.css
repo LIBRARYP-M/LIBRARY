@@ -1091,3 +1091,13 @@ background-color: white;
 margin-bottom: 10px;
 font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji; 
 }
+
+
+.hidden {
+  display: none;
+}
+
+.alert-success{
+  margin-top: 20px;
+  text-align: center;
+}
