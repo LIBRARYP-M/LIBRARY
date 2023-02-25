@@ -58,3 +58,18 @@ myLoansBtn.addEventListener("click", () => {
   myExchangesContainer.classList.remove("container-when-clicked")
   myExchangesContainer.classList.add("container-when-not-clicked")
 })
+
+
+// ADD POP-UPS
+
+const loanBtn = document.querySelectorAll(".loanBtn")
+loanBtn.addEventListener("click", () => {
+  console.log("slay")
+  alert("loan requested!")
+})
+// loanBtns.forEach(loanBtn => {
+//   loanBtn.addEventListener("click", () => {
+//     console.log("slay")
+//     alert("loan requested!")
+//   })
+// })

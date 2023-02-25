@@ -8,8 +8,12 @@ module.exports.prepareSelection = (req, res, next) => {
 
   Book.find({user: req.user.id})
     .then(books => {
-      console.log(bookId)
-      res.render("books/booksToSelect", { books, bookId })    
+      if(books.length === 0) {
+        res.redirect("/books/create")
+      } else {
+        console.log(books)
+        res.render("books/booksToSelect", { books, bookId })
+      }    
     })
     .catch(next)
 }
@@ -54,8 +58,12 @@ module.exports.request = (req, res, next) => {
 module.exports.doAccept = (req, res, next) => {
   Exchange.findByIdAndUpdate(req.params.id, {"status": "accepted"})
     .then(exchange => {
-      User.findById(exchange.petitioner)
-        .then(user => {
+      const promise1 = Book.findByIdAndUpdate(exchange.bookFromPetitioner, {"inAnAcceptedRequest": "true"})
+      const promise2 = Book.findByIdAndUpdate(exchange.bookFromReceiver, {"inAnAcceptedRequest": "true"})
+      const userPromise = User.findById(exchange.petitioner)
+      Promise.all([promise1, promise2, userPromise])
+        .then(response => {
+          const user = response[2]
           res.render("exchange/accepted", { user })
           sendMail(user.email, "accepted", "exchange", req.user, exchange.id)
         })
