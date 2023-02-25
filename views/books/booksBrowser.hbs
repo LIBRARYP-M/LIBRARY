@@ -30,9 +30,9 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
       <h3>{{book.title}}</h3>
       <h4>{{book.author}}</h4>
       <div class="actions-exchange-loan">
-        <a class="fa-solid fa-arrow-right-arrow-left btn btn-warning" type="submit" href="/exchange/{{book.id}}/prepareSelection"><span class="text-exchange-loan">Exchange</span></a>
+        <a class="fa-solid fa-arrow-right-arrow-left btn btn-warning exchangeBtn" type="submit" href="/exchange/{{book.id}}/prepareSelection"><span class="text-exchange-loan">Exchange</span></a>
         <form action="/loan/{{book.id}}/create" method="POST">
-        <button class="fa-solid fa-right-long btn btn-primary" type="submit"><span class="text-exchange-loan">Loan</span></button>
+        <button class="fa-solid fa-right-long btn btn-primary loanBtn" type="submit"><span class="text-exchange-loan">Loan</span></button>
         </form>
       </div>
       <div class="user">

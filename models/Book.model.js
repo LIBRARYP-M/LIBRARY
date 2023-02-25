@@ -34,6 +34,10 @@ const bookSchema = new mongoose.Schema(
       ref: 'User',
       required: true
     },
+    inAnAcceptedRequest: {
+      type: String,
+      default: "false"
+    }
   },
   {
     timestamps: true,

@@ -24,21 +24,27 @@ hbs.registerHelper("findSelected", function (options) {
 hbs.registerHelper("yourLoan", function (options) {
   const { petitionerId, userId } = options.hash
 
-  // console.log(petitionerId, userId)
-
   if(petitionerId === userId) {
-    console.log("if")
     return options.fn(this)
   } else {
-    console.log("else")
     return options.inverse(this)
   }
 })
 
-hbs.registerHelper("notYourLoan", function (options) {
-  const { petitionerId, userId } = options.hash
+// hbs.registerHelper("notYourLoan", function (options) {
+//   const { petitionerId, userId } = options.hash
 
-  if(petitionerId !== userId) {
+//   if(petitionerId !== userId) {
+//     return options.fn(this)
+//   } else {
+//     return options.inverse(this)
+//   }
+// })
+
+hbs.registerHelper("statusChecker", function (options) {
+  const { status, statusToCheck } = options.hash
+
+  if(status === statusToCheck) {
     return options.fn(this)
   } else {
     return options.inverse(this)

@@ -676,6 +676,7 @@ span{
     border-radius: 15px;
     margin-bottom: 20px;
     font-size: 22px;
+    align-items: center;
   }
 
   .loan-image-arrow {
@@ -694,7 +695,8 @@ span{
   }
 
   .loaned-book-image {
-    width: 70px;
+    width: 90px;
+    height: auto;
     border-radius: 15px;
   }
 
@@ -835,6 +837,21 @@ box-shadow: inset 3px 3px 3px #cbced1;
 .user-info small {
   color: #545d7a;
 }
+
+/* Border colors */
+
+.pending-border {
+  border: 2px solid rgb(62, 62, 204);
+}
+
+.accepted-border {
+  border: 2px solid rgb(49, 177, 49);
+}
+
+.rejected-border {
+  border: 2px solid rgb(228, 55, 55);
+}
+
 
 /* .loan-exchange-lel-2:is(img, span, strong) {
   transform: translateY(-40px); 
