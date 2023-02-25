@@ -10,4 +10,6 @@ router.get("/:id/request", authMiddleware.isAuthenticated, loanController.reques
 router.post("/:id/accept", authMiddleware.isAuthenticated, loanController.doAccept)
 router.post("/:id/reject", authMiddleware.isAuthenticated, loanController.doReject)
 
+router.post("/:id/close", authMiddleware.isAuthenticated, loanController.doClose)
+
 module.exports = router

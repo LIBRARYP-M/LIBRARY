@@ -62,3 +62,13 @@ module.exports.doReject = (req, res, next) => {
         })
     })
 }
+
+module.exports.doClose = (req, res, next) => {
+  Loan.findByIdAndUpdate(req.params.id, {"status": "closed"})
+    .then(loan => {
+      Book.findByIdAndUpdate(loan.bookFromReceiver, {"inAnAcceptedRequest": "false"})
+        .then(() => {
+          res.redirect("/user/profile")
+        })
+    })
+}

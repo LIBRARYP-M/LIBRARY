@@ -880,6 +880,10 @@ box-shadow: inset 3px 3px 3px #cbced1;
   border: 2px solid rgb(228, 55, 55);
 }
 
+.closed-border {
+  border: 2px solid rgb(92, 92, 92);
+}
+
 
 /* .loan-exchange-lel-2:is(img, span, strong) {
   transform: translateY(-40px); 
@@ -890,8 +894,8 @@ box-shadow: inset 3px 3px 3px #cbced1;
 } */
  
 .card-browser:hover {
-  transform: translateY(-25px);
-  box-shadow: 0px 5px 10px 10px #a2a19e;
+  transform: translateY(-15px);
+  box-shadow: 0px 5px 5px 5px #666564;
   /* transform: translateY(-25px);
   box-shadow: 0px 5px 10px 10px #404142; */
 }
