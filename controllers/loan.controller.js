@@ -17,7 +17,7 @@ module.exports.doCreateLoan = (req, res, next) => {
           User.findById(book.user)
             .then(user => {
               sendMail(user.email, "request", "loan", user, loan.id)
-              res.redirect("/books/browser")
+              res.redirect("/books/browser");
             })
         })
     })

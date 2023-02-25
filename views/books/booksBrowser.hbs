@@ -19,6 +19,11 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
         <button id="browser-btn" class="browser-btn-fil">Filter</button>
 </div>
 
+  <div class="alert alert-success hidden" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Loan requested done</p>
+  </div>
+
 <div class="container-browser">
   {{#each books as |book|}}
   <div class="card-browser">
@@ -37,10 +42,8 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
       <h3>{{book.title}}</h3>
       <h4>{{book.author}}</h4>
       <div class="actions-exchange-loan">
-        <a class="fa-solid fa-arrow-right-arrow-left btn btn-warning exchangeBtn" type="submit" href="/exchange/{{book.id}}/prepareSelection"><span class="text-exchange-loan">Exchange</span></a>
-        <form action="/loan/{{book.id}}/create" method="POST">
-        <button class="fa-solid fa-right-long btn btn-primary loanBtn" type="submit"><span class="text-exchange-loan">Loan</span></button>
-        </form>
+        <a class="fa-solid fa-arrow-right-arrow-left btn btn-warning exchangeBtn showPopup"  type="submit" href="/exchange/{{book.id}}/prepareSelection" id="hide"><span class="text-exchange-loan">Exchange</span></a>
+        <button class="fa-solid fa-right-long btn btn-primary loanBtn" data-id="{{book.id}}" type="submit"><span class="text-exchange-loan">Loan</span></button>
       </div>
       <div class="user">
         <img src={{book.user.image}} alt="user" />
@@ -62,5 +65,31 @@ https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg
   button.addEventListener('click', () => {
     const criteria = input.value;
     document.location.pathname = `/books/browser/${criteria}`;
+  })
+
+  /* const showPopupBtns = document.querySelectorAll('.showPopup');
+  const alertNode = document.querySelector('.alert-success');
+
+  [...showPopupBtns].forEach((btn) => {
+    btn.addEventListener('click', () => {
+      alertNode.classList.remove("hidden");
+    })
+  }) */
+
+  const loanReqBtn = document.querySelector('.loanBtn');
+  const url = `/loan/${loanReqBtn.dataset.id}/create`;
+  console.log(loanReqBtn);
+  loanReqBtn.addEventListener('click', () => {
+    axios.post(url)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          const alertNode = document.querySelector('.alert-success');
+          alertNode.classList.remove("hidden");
+          setTimeout(() => {
+            alertNode.classList.add("hidden");
+          }, 4000);
+        }
+      })
   })
 </script>
