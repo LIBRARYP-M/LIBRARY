@@ -75,7 +75,7 @@ module.exports.browserFiltered = (req, res, next) => {
   const { criteria } = req.params;
 
   if (req.user) {
-    Book.find({$and: [{user: {$ne: req.user.id}}, {title: criteria}]})
+  Book.find({$and: [{user: {$ne: req.user.id}}, {title: criteria}]})
     .populate('user')
     .then((books) => {
       console.log(books);
