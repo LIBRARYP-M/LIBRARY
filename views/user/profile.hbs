@@ -40,8 +40,8 @@
         <div class="exchange-card {{#statusChecker status=exchange.status statusToCheck="pendingAcceptance"}}pending-border{{/statusChecker}}{{#statusChecker status=exchange.status statusToCheck="accepted"}}accepted-border{{/statusChecker}}{{#statusChecker status=exchange.status statusToCheck="rejected"}}rejected-border{{/statusChecker}}{{#statusChecker status=exchange.status statusToCheck="closed"}}closed-border{{/statusChecker}}">
           {{#statusChecker status=exchange.status statusToCheck="closed"}}
           {{else}}
-          <form action="/exchange/{{exchange.id}}/close" method="POST">
-            <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+          <form class="close-exchange" action="/exchange/{{exchange.id}}/close" method="POST">
+            <button class="fa-solid fa-calendar-check" type="submit"><p class="text-close">Close exchange</p></button>
           </form>
           {{/statusChecker}}
           <div class="petitioner-info">
@@ -80,7 +80,7 @@
             {{#statusChecker status=loan.status statusToCheck="closed"}}
             {{else}}
               <form action="/loan/{{loan.id}}/close" method="POST">
-                <button class="fa-solid fa-xmark btn btn-danger" type="submit"></button>
+                <button class="fa-solid fa-calendar-check" type="submit"><p class="text-close">Close loan</p></button>
               </form>
             {{/statusChecker}}
           {{/yourLoan}}

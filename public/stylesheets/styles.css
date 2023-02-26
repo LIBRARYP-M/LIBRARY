@@ -371,10 +371,31 @@ span{
     margin-bottom: 10px;
   }
 
+  }
+
+  .close-exchange {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0px 0px 0px 0px;
+  }
+
+
+  .fa-solid.fa-calendar-check {
+    border-radius: 10px;
+    background-color:white;
+  }
+
+  .text-close {
+    font-size: 8px;
+    margin: 6px;
+  }
+
   .petitioner-info, .receiver-info {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-top: 6px;
   }
 
   .exchange-image {
@@ -389,9 +410,11 @@ span{
   /* starts loan styles */
 
   .loan-card {
+    justify-content: center;
+    align-items: center;
     background-color: #eef1f3;
     display: flex;
-    gap: 30px;
+    gap: 15px;
     padding: 15px;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -400,7 +423,6 @@ span{
   .loan-image-arrow {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
   }
 
   .loan-arrows {
@@ -529,6 +551,7 @@ span{
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-top: 6px;
   }
 
   .exchange-image {
@@ -553,7 +576,6 @@ span{
   .loan-image-arrow {
     display: flex;
     gap: 30px;
-    margin-bottom: 20px;
   }
 
   .loan-arrows {
@@ -701,6 +723,7 @@ span{
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-top: 6px;
   }
 
   .exchange-image {
@@ -720,6 +743,7 @@ span{
   }
 
   .loan-card {
+    width: 463px;
     background-color: #eef1f3;
     display: flex;
     gap: 40px;
@@ -733,7 +757,6 @@ span{
   .loan-image-arrow {
     display: flex;
     gap: 30px;
-    margin-bottom: 20px;
   }
 
   .loan-arrows {
@@ -910,9 +933,16 @@ box-shadow: inset 3px 3px 3px #cbced1;
   height: 40px;
   margin-right: 10px;
 }
+
+.user-info small {
+  font-size: 12px;
+}
+
 .user-info h5 {
   margin: 0;
+  font-size: 16px;
 }
+
 .user-info small {
   color: #545d7a;
 }
