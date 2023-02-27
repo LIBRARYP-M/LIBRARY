@@ -1,5 +1,5 @@
-<div class="container-sg-level-1">
-  <div class="container-sg-level-2">
+<div class="container-sg-level-1" style="overflow: scroll;">
+  <div class="container-sg-level-2" style="margin-top: 120px; margin-bottom: 20px;">
     <h1 class="text-sg">Sign up</h1>
     
     <form action="/signup" method="POST" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
     
     <div class="mb-3">
     {{!-- <label for="username" class="form-label"></label> --}}
-    <input value="{{user.username}}" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="username" name="username" required placeholder="Username">
+    <input value="{{user.username}}" class="form-control {{#if errors.username}}is-invalid{{/if}}" id="username" name="username" required placeholder="Username">
     <div class="invalid-feedback">
     {{errors.email}}
     </div>

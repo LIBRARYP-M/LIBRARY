@@ -442,7 +442,7 @@ span{
   .hidden {
     display: none !important;
   }
-}
+
 
 @media (min-width: 641px) and (max-width: 1007px) {
   #user-info-container {
@@ -1162,4 +1162,5 @@ font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,R
 .alert-success{
   margin-top: 20px;
   text-align: center;
+  z-index: 1;
 }
